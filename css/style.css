@@ -1,0 +1,316 @@
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -5px);
+  }
+}
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bomb {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/milky-way-2695569_1920.jpg);
+  scroll-behavior: smooth;
+}
+
+#wrap {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 1240px;
+  margin: 0 auto;
+}
+#wrap > h1 {
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  z-index: 100;
+  height: 35px;
+  padding-top: 10px;
+  transform: translate(-50%, 0);
+  background-image: linear-gradient(to left, #28b2b2 0%, #43137d 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 60px;
+  letter-spacing: 3px;
+}
+#wrap > #home {
+  overflow: hidden;
+  position: relative;
+}
+#wrap > #home > .intro > .text {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  z-index: 100;
+  width: 470px;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.5;
+  transform: translate(-50%, -50%);
+}
+#wrap > #home > .bgmov {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}
+#wrap > #home > .bgmov > video {
+  width: 100%;
+  min-height: 100%;
+}
+#wrap > #home > .mouse {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  z-index: 100;
+  width: 30px;
+  height: 50px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  border-radius: 15px;
+  transform: translate(-50%, 0);
+}
+@keyframes mousewheel {
+  0% {
+    top: 5px;
+    opacity: 0;
+  }
+  30% {
+    top: 10px;
+    opacity: 1;
+  }
+  100% {
+    top: 20px;
+    opacity: 0;
+  }
+}
+#wrap > #home > .mouse > .wheel {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  width: 4px;
+  height: 10px;
+  text-indent: -9999px;
+  background-color: #fff;
+  transform: translate(-50%, 0);
+  border-radius: 2px;
+  animation: mousewheel 1s linear infinite;
+}
+#wrap > header {
+  display: none;
+}
+#wrap > header > nav {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  z-index: 1000;
+  transform: translate(0, -50%);
+}
+#wrap > header > nav > .gnb > li {
+  margin-bottom: 15px;
+}
+#wrap > header > nav > .gnb > li > a {
+  display: block;
+  color: #fff;
+  transition: all 0.8s;
+}
+#wrap > header > nav > .gnb > li:hover > a {
+  font-size: 18px;
+  font-weight: 600;
+}
+#wrap > header ~ section {
+  padding: 0 20px;
+}
+#wrap > #about-me {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: #000;
+}
+#wrap > #about-me > h2 {
+  position: absolute;
+  left: 8%;
+  top: 100px;
+  display: flex;
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+#wrap > #about-me > h2 > span {
+  display: block;
+  margin: 0 10px;
+  color: #8679D9;
+  font-weight: 800;
+  font-size: 38px;
+  animation: bounce 0.7s infinite alternate;
+}
+#wrap > #about-me > .container {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100vh;
+}
+#wrap > #about-me > .container > .profile > h3 > img {
+  display: block;
+  width: 600px;
+  height: 600px;
+}
+#wrap > #about-me > .container > .vision > p {
+  width: 450px;
+  padding-bottom: 40px;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: justify;
+  text-indent: 3px;
+}
+#wrap > #about-me > .container > .vision > p > span {
+  color: #D98D62;
+}
+#wrap > #skills {
+  position: relative;
+  height: 100vh;
+}
+#wrap > #skills:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #141A26;
+  opacity: 0.5;
+  content: "";
+}
+#wrap > #skills > article {
+  position: absolute;
+  z-index: 300;
+  width: 400px;
+  height: 150px;
+  background-size: contain;
+  background-position: 0 center;
+}
+#wrap > #skills > article:nth-of-type(1) {
+  left: 200px;
+  top: 20%;
+}
+#wrap > #skills > article:nth-of-type(2) {
+  right: 160px;
+  top: 10%;
+}
+#wrap > #skills > article:nth-of-type(3) {
+  left: 45%;
+  top: 45%;
+}
+#wrap > #skills > article:nth-of-type(4) {
+  left: 350px;
+  bottom: 13%;
+}
+#wrap > #skills > article > img {
+  display: block;
+  width: 150px;
+  animation: roll 20s linear infinite;
+}
+#wrap > #skills > article > .skill-container {
+  position: absolute;
+  top: 30px;
+  left: 180px;
+}
+#wrap > #skills > article > .skill-container:hover > .skill-works {
+  display: flex;
+}
+#wrap > #skills > article > .skill-container > h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.5;
+}
+#wrap > #skills > article > .skill-container > p {
+  color: #fff;
+  font-size: 18px;
+  animation: bomb 1.7s linear infinite;
+}
+#wrap > #skills > article > .skill-container > .skill-works {
+  display: none;
+  position: absolute;
+  z-index: 700;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: 600px;
+  height: 400px;
+  background-color: #141A26;
+  background-size: contain;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+#wrap > #skills > article > .skill-container > .skill-works > a {
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #8679D9;
+  border-radius: 8px;
+}
+#wrap > #skills > article > .skill-container > .skill-works > a:first-child {
+  margin-right: 25px;
+}
+#wrap > #skills > article > .skill-container > .skill-works > a:hover {
+  font-weight: 600;
+  background-color: #D98D62;
+}
+#wrap > #skills > article > .skill-container > .skill-works.uiux {
+  left: -200px;
+  top: -400px;
+  background-image: url(../img/gogosing_screen.png);
+}
+#wrap > #skills > article > .skill-container > .skill-works.semantic {
+  left: -100px;
+  top: -100px;
+  width: 400px;
+  height: 350px;
+  background-image: url(../img/mykatalk.png);
+}
+#wrap > #skills > article > .skill-container > .skill-works.react {
+  left: 0;
+  top: 0;
+}
+#wrap > #skills > article > .skill-container > .skill-works.rwd {
+  left: 0;
+  top: 0;
+}/*# sourceMappingURL=style.css.map */

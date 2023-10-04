@@ -1,0 +1,338 @@
+@charset 'utf-8';
+
+$pri-color1:#141A26;
+$sec-color1:#8679D9;
+$point-color1:#D98D62;
+
+@keyframes bounce{
+    0%{transform: translate(0,0);}
+    100%{transform: translate(0,-5px);}
+}
+
+@keyframes roll{
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+
+@keyframes bomb{
+    0%{transform: scale(1);}
+    50%{transform: scale(0.9);}
+    100%{transform: scale(1);}
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/milky-way-2695569_1920.jpg);
+    scroll-behavior: smooth;
+}
+#wrap{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-width: 1240px;
+    margin: 0 auto;
+
+    >h1{
+        position: absolute;
+        left: 50%;
+        top: 200px;
+        z-index: 100;
+        height: 35px;
+        padding-top: 10px;
+        transform: translate(-50%,0);
+        background-image: linear-gradient(to left, #28b2b2 0%, #43137d 100%);        
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-size: 60px;
+        letter-spacing: 3px;
+    }
+
+    >#home{
+        overflow: hidden;
+		position: relative;
+
+        >.intro{
+
+            >.text{
+                position: absolute;
+                left: 50%;
+                top: 55%;
+                z-index: 100;
+                width: 470px;
+                color: #fff;
+                font-size: 42px;
+                font-weight: 800;
+                line-height: 1.5;
+                transform: translate(-50%,-50%);
+            }
+        }//end of .intro
+        >.bgmov{
+            position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 10;
+			width: 100%;
+
+            > video {
+				width: 100%;
+				min-height: 100%;
+			}
+        }//end of .bgmov
+        >.mouse{
+            position: absolute;
+			left: 50%;
+			bottom: 40px;
+            z-index: 100;
+			width: 30px;
+			height: 50px;
+			border: 2px solid #fff;
+			box-sizing: border-box;
+			border-radius: 15px;
+			transform: translate(-50%, 0);
+
+            @keyframes mousewheel {
+				0% {
+					top: 5px;
+					opacity: 0;
+				}
+				30% {
+					top: 10px;
+					opacity: 1;
+				}
+				100% {
+					top: 20px;
+					opacity: 0;
+				}
+			}
+            > .wheel {
+				position: absolute;
+				left: 50%;
+				top: 5px;
+				width: 4px;
+				height: 10px;
+				text-indent: -9999px;
+				background-color: #fff;
+				transform: translate(-50%, 0);
+				border-radius: 2px;
+				animation: mousewheel 1s linear infinite;
+			}
+        }
+    }//end of #home
+
+    >header{
+        display: none;
+        >nav{
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            z-index: 1000;
+            transform: translate(0,-50%);
+            >.gnb{
+                >li{
+                    margin-bottom: 15px;
+                    >a{
+                        display: block;
+                        color: #fff;
+                        transition: all 0.8s;
+                    }
+                    &:hover>a{
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }//end of header
+
+    >header~section{
+        padding: 0 20px;
+    }
+    >#about-me{
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        height: 100vh;
+        background-color: #000;
+        
+        >h2{
+            position: absolute;
+            left: 8%;
+            top: 100px;
+            display: flex;
+            color: #fff;
+            font-size: 32px;
+            letter-spacing: 2px;
+            >span{
+                display: block;
+                margin: 0 10px;
+                color: $sec-color1;
+                font-weight: 800;
+                font-size: 38px;
+                animation: bounce 0.7s infinite alternate;
+            }
+        }//end of h2
+        
+        >.container{
+            position: absolute;
+            right: 0;
+            bottom: 20px;
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 100vh;
+
+            >.profile{
+                >h3{
+                    >img{
+                        display: block;
+                        width: 600px;
+                        height: 600px;
+                    }
+                }
+            }//end of .profile
+
+            >.vision{
+                >p{
+                    width: 450px;
+                    padding-bottom: 40px;
+                    color: #fff;
+                    font-size: 24px;
+                    line-height: 1.3;
+                    text-align: justify;
+                    text-indent: 3px;
+
+                    >span{
+                        color: $point-color1;
+                    }
+                }//end of p
+            }//end of .vision
+        }//end of .container
+    }//end of #about-me
+
+    >#skills{
+        position: relative;
+        height: 100vh;
+
+        &:after{
+            display: block;
+            position: absolute;
+            left: 0;right: 0;top: 0;bottom: 0;
+            z-index: 100;
+            background-color: $pri-color1;
+            opacity: 0.5;
+            content: '';
+        }
+
+        >article{
+            position: absolute;
+            z-index: 300;
+            width: 400px;
+            height: 150px;
+            background-size: contain;
+            background-position: 0 center;
+            &:nth-of-type(1){
+                left: 200px;
+                top: 20%;                
+            }
+            &:nth-of-type(2){
+                right: 160px;
+                top: 10%;
+            }
+            &:nth-of-type(3){
+                left: 45%;
+                top: 45%;
+            }
+            &:nth-of-type(4){
+                left: 350px;
+                bottom: 13%;
+            }
+            >img{
+                display: block;
+                width: 150px;
+                animation: roll 20s linear infinite;                
+            }
+            >.skill-container{
+                position: absolute;
+                top: 30px;
+                left: 180px;
+
+                &:hover>.skill-works{
+                    display: flex;
+                }
+                >h3{
+                    margin-bottom: 10px;
+                    color: #fff;
+                    font-size: 20px;
+                    line-height: 1.5;
+                }
+                >p{
+                    color: #fff;
+                    font-size: 18px;
+                    animation: bomb 1.7s linear infinite;
+                }
+                >.skill-works{
+                    display: none;
+                    position: absolute;
+                    z-index: 700;
+                    flex-flow: row nowrap;
+                    justify-content: center;
+                    align-items: flex-end;
+                    width: 600px;
+                    height: 400px;
+                    background-color: $pri-color1;
+                    background-size: contain;
+                    background-position: left top;
+                    background-repeat: no-repeat;
+                    border-radius: 10px;
+                    border: 1px solid #fff;
+
+                    >a{
+                        display: block;
+                        padding: 5px 10px;
+                        margin-bottom: 15px;
+                        color: #fff;
+                        font-size: 16px;
+                        background-color: $sec-color1;
+                        border-radius: 8px;
+
+                        &:first-child{
+                            margin-right: 25px;
+                        }
+                        &:hover{
+                            font-weight: 600;
+                            background-color: $point-color1;
+                        }
+                    }
+
+                    &.uiux{
+                        left: -200px;
+                        top: -400px;
+                        background-image: url(../img/gogosing_screen.png);
+                    }
+                    &.semantic{
+                        left: -100px;
+                        top: -100px;
+                        width: 400px;
+                        height: 350px;
+                        background-image: url(../img/mykatalk.png);
+                        
+                    }
+                    &.react{
+                        left: 0;top: 0;
+                    }
+                    &.rwd{
+                        left: 0;top: 0;
+                    }
+                }
+
+            }
+          
+        }//end of article
+    }//end of #skills
+}
