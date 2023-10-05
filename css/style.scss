@@ -2,6 +2,7 @@
 
 $pri-color1: #141a26;
 $sec-color1: #8679d9;
+$sec-color2: #81fded;
 $point-color1: #d98d62;
 
 @keyframes bounce {
@@ -51,7 +52,7 @@ body {
 	> h1 {
 		position: absolute;
 		left: 50%;
-		top: 200px;
+		top: 20%;
 		z-index: 100;
 		height: 35px;
 		padding-top: 10px;
@@ -246,123 +247,147 @@ body {
 			content: '';
 		}
 
-		> article {
-			position: absolute;
-			z-index: 300;
-			width: 400px;
-			height: 150px;
-			background-size: contain;
-			background-position: 0 center;
-			&:nth-of-type(1) {
-				left: 200px;
-				top: 20%;
-			}
-			&:nth-of-type(2) {
-				right: 160px;
-				top: 10%;
-			}
-			&:nth-of-type(3) {
-				left: 50%;
-				top: 45%;
-			}
-			&:nth-of-type(4) {
-				left: 350px;
-				bottom: 13%;
-			}
-			> img {
-				display: block;
-				width: 150px;
-				animation: roll 20s linear infinite;
-			}
-			> .skill-container {
-				position: absolute;
-				top: 30px;
-				left: 180px;
+		> .skills {
+			position: relative;
+			width: 100%;
+			height: 100%;
 
-				&:hover > .skill-works {
-					display: flex;
-				}
+			> .skills-container {
+				position: absolute;
+				z-index: 300;
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				width: 400px;
 
 				> h3 {
 					margin-bottom: 10px;
 					color: #fff;
 					font-size: 20px;
+					font-weight: 500;
 					line-height: 1.5;
-				}
-				> p {
-					color: #fff;
-					font-size: 18px;
-					animation: bomb 1.7s linear infinite;
-				}
-				> .skill-works {
-					display: none;
-					position: absolute;
-					z-index: 700;
-					flex-flow: row nowrap;
-					justify-content: center;
-					align-items: flex-end;
-					background-color: $pri-color1;
-					background-size: contain;
-					background-position: left top;
-					background-repeat: no-repeat;
-					border-radius: 10px;
-
-					> a {
+					> span {
 						display: block;
-						padding: 5px 10px;
-						margin-bottom: 15px;
-						color: #fff;
-						font-size: 16px;
-						background-color: $sec-color1;
-						border-radius: 8px;
+						margin-top: 5px;
+						color: $sec-color2;
+						font-size: 18px;
+						animation: bomb 1.7s linear infinite;
+					}
+				} //end of h3
 
-						&:first-child {
-							margin-right: 25px;
-						}
-						&:hover {
-							font-weight: 600;
-							background-color: $point-color1;
-						}
+				&:nth-of-type(1) {
+					left: 10%;
+					top: 10%;
+					> h3 {
+						margin-left: 15px;
+					}
+					&:hover ~ .semantic {
+						display: block;
+					}
+				}
+				&:nth-of-type(2) {
+					right: 5%;
+					top: 20%;
+
+					&:hover ~ .react {
+						display: block;
+					}
+				}
+				&:nth-of-type(3) {
+					left: 45%;
+					top: 45%;
+					> h3 {
+						margin-left: 20px;
 					}
 
-					&.uiux {
-						left: -200px;
-						top: -400px;
-						width: 600px;
-						height: 400px;
-						background-image: url(../img/skills/gogosing_screen.png);
+					&:hover ~ .rwd {
+						display: block;
+					}
+				}
+				&:nth-of-type(4) {
+					left: 5%;
+					top: 70%;
 
-						> .shadow {
-							> .shadow-box {
-								> button {
-									border: none;
-								}
-							}
-						}
+					&:hover ~ .uiux {
+						display: block;
 					}
-					&.semantic {
-						left: -20px;
-						top: -100px;
-						width: 250px;
-						height: 430px;
-						background-image: url(../img/skills/mykatalk.png);
+				}
+				> img {
+					display: block;
+					width: 200px;
+					animation: roll 20s linear infinite;
+				} //end of img
+			} //end of .skills-container
+			> .skills-works {
+				display: none;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				z-index: 500;
+				transform: translate(-50%, -60%);
+				background-position: center center;
+				background-repeat: no-repeat;
+				border-radius: 65px;
+
+				> img {
+					display: block;
+					width: 400px;
+					height: 650px;
+				}
+				&.semantic {
+					width: 400px;
+					height: 650px;
+					background-image: url(../img/skills/mykatalk.gif);
+					background-size: 360px 640px;
+				} //end of .semantic,.react
+				&.react {
+					overflow: hidden;
+					background-image: url(../img/skills/todo.gif);
+					background-size: 370px 690px;
+					background-position: center bottom;
+					border-radius: 70px;
+				}
+				&.rwd {
+					background-image: url(../img/skills/kurly.gif);
+					background-size: 370px 640px;
+				}
+				&.uiux {
+					top: 40px;
+					width: 826px;
+					height: 745px;
+					background-image: url(../img/skills/computer-2214393_1280.png);
+					background-size: 826px 745px;
+					transform: translate(-30%, 0);
+					> video {
+						position: absolute;
+						left: 50%;
+						top: 13px;
+						width: 800px;
+						transform: translate(-50%, 0);
+						border-radius: 20px;
 					}
-					&.react {
-						left: -30px;
-						top: 0;
-						width: 350px;
-						height: 660px;
-						background-image: url(../img/skills/react_todo.png);
-					}
-					&.rwd {
-						left: 0;
-						top: -30px;
-						width: 500px;
-						height: 420px;
-						background-image: url(../img/skills/kulry.png);
-					}
-				} //end of .skill-works
-			} //end of .skill-container
-		} //end of article
+				}
+			} //end of .skill-works
+		} //end of .skills
 	} //end of #skills
+
+	> #portfolio {
+		width: 90%;
+		height: 100vh;
+
+		> .slides-container {
+			position: relative;
+			> li {
+				display: flex;
+
+				> .desc {
+					width: 30%;
+				}
+
+				> .content {
+					width: 65%;
+				}
+			}
+		}
+	} //end of #portfolio
 }
