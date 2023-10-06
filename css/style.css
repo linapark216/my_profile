@@ -30,6 +30,7 @@ body {
   width: 100%;
   height: 100%;
   background-image: url(../img/milky-way-2695569_1920.jpg);
+  background-size: cover;
   scroll-behavior: smooth;
 }
 
@@ -37,7 +38,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  min-width: 1240px;
+  min-width: 1280px;
   margin: 0 auto;
 }
 #wrap > h1 {
@@ -48,7 +49,7 @@ body {
   height: 35px;
   padding-top: 10px;
   transform: translate(-50%, 0);
-  background-image: linear-gradient(to left, #35e6e6 0%, #b423c7 100%);
+  background-image: linear-gradient(to left, #35e6e6 0%, #e946ff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -146,6 +147,7 @@ body {
 }
 #wrap > header ~ section {
   padding: 0 20px;
+  box-sizing: border-box;
 }
 #wrap > #about-me {
   position: relative;
@@ -197,7 +199,7 @@ body {
   text-indent: 3px;
 }
 #wrap > #about-me > .container > .vision > p > span {
-  color: #d98d62;
+  color: #f78a69;
 }
 #wrap > #skills {
   position: relative;
@@ -331,19 +333,144 @@ body {
   border-radius: 20px;
 }
 #wrap > #portfolio {
-  width: 90%;
+  position: relative;
+  width: 100%;
   height: 100vh;
+}
+#wrap > #portfolio:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #141a26;
+  opacity: 0.5;
+  content: "";
 }
 #wrap > #portfolio > .slides-container {
   position: relative;
+  left: 50%;
+  top: 5%;
+  z-index: 200;
+  width: 85%;
+  max-width: 1600px;
+  transform: translate(-50%, 0);
 }
-#wrap > #portfolio > .slides-container > li {
+#wrap > #portfolio > .slides-container > .slides > li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 300;
   display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 50px 0;
+  box-sizing: border-box;
 }
-#wrap > #portfolio > .slides-container > li > .desc {
-  width: 30%;
+#wrap > #portfolio > .slides-container > .slides > li:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: #000;
+  opacity: 0.4;
+  content: "";
 }
-#wrap > #portfolio > .slides-container > li > .frame {
-  width: 65%;
-  background-image: url(../img/portfolio/browser.png);
+#wrap > #portfolio > .slides-container > .slides > li > .desc {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 28%;
+  padding: 10px;
+  color: #fff;
+  line-height: 1.5;
+  text-align: justify;
+  box-sizing: border-box;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > h3 {
+  margin-bottom: 50px;
+  font-size: 28px;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p {
+  font-size: 15px;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p.proc {
+  margin-top: 20px;
+  line-height: 1.7;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p.button {
+  display: flex;
+  justify-content: center;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p.button > a {
+  padding: 5px 12px;
+  color: #fff;
+  letter-spacing: 2px;
+  background-color: #3a2b98;
+  border-radius: 8px;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p.button > a:first-child {
+  margin-right: 15px;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p.button > a:hover {
+  font-weight: 500;
+  background-color: #191241;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .desc > p > span {
+  font-size: 16px;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .frame {
+  width: 60%;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .frame > video {
+  width: 100%;
+  border-radius: 5px;
+}
+#wrap > #portfolio > .slides-container > .slides > li > .frame > img {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+}
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(1) {
+  display: block;
+}
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(2) {
+  display: none;
+  align-items: center;
+}
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(2) > .desc > h3 {
+  margin-bottom: 90px;
+}
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(2) > .desc > .proc {
+  margin: 45px 0;
+}
+#wrap > #portfolio > .slides-container > a {
+  position: absolute;
+  top: 300px;
+  z-index: 300;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  background-image: url(../img/portfolio/spriteImg.png);
+}
+#wrap > #portfolio > .slides-container > a.slides-prev {
+  left: 0;
+  background-position: -13px -20px;
+}
+#wrap > #portfolio > .slides-container > a.slides-prev:hover {
+  background-position: -13px -62px;
+}
+#wrap > #portfolio > .slides-container > a.slides-next {
+  right: 0;
+  background-position: -13px -104px;
+}
+#wrap > #portfolio > .slides-container > a.slides-next:hover {
+  background-position: -13px -147px;
 }/*# sourceMappingURL=style.css.map */
