@@ -343,6 +343,7 @@ body {
 #wrap > #portfolio > .slides-container > li > .desc {
   width: 30%;
 }
-#wrap > #portfolio > .slides-container > li > .content {
+#wrap > #portfolio > .slides-container > li > .frame {
   width: 65%;
+  background-image: url(../img/portfolio/browser.png);
 }/*# sourceMappingURL=style.css.map */
