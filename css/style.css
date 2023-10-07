@@ -141,7 +141,7 @@ body {
   color: #fff;
   transition: all 0.8s;
 }
-#wrap > header > nav > .gnb > li:hover > a {
+#wrap > header > nav > .gnb > li.on, #wrap > header > nav > .gnb > li :hover > a {
   font-size: 18px;
   font-weight: 600;
 }
@@ -289,7 +289,7 @@ body {
   left: 50%;
   top: 50%;
   z-index: 500;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -50%);
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 65px;
@@ -365,9 +365,11 @@ body {
   z-index: 300;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
+  height: 600px;
   padding: 50px 0;
-  box-sizing: border-box;
+  display: none;
 }
 #wrap > #portfolio > .slides-container > .slides > li:before {
   display: block;
@@ -387,21 +389,22 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   width: 28%;
-  padding: 10px;
+  height: 600px;
+  padding: 0 10px;
   color: #fff;
   line-height: 1.5;
   text-align: justify;
   box-sizing: border-box;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .desc > h3 {
-  margin-bottom: 50px;
+  margin-bottom: 90px;
   font-size: 28px;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .desc > p {
   font-size: 15px;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .desc > p.proc {
-  margin-top: 20px;
+  margin: 45px 0;
   line-height: 1.7;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .desc > p.button {
@@ -426,10 +429,13 @@ body {
   font-size: 16px;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .frame {
+  display: flex;
   width: 60%;
+  height: 600px;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .frame > video {
   width: 100%;
+  max-height: 600px;
   border-radius: 5px;
 }
 #wrap > #portfolio > .slides-container > .slides > li > .frame > img {
@@ -438,17 +444,23 @@ body {
   border-radius: 5px;
 }
 #wrap > #portfolio > .slides-container > .slides > li:nth-child(1) {
-  display: block;
+  display: flex;
 }
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(2) {
-  display: none;
-  align-items: center;
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(3) > .frame {
+  position: relative;
+  background-image: url(../img/portfolio/smartphone-2237421_1280.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(2) > .desc > h3 {
-  margin-bottom: 90px;
-}
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(2) > .desc > .proc {
-  margin: 45px 0;
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(3) > .frame > img {
+  position: absolute;
+  left: 50%;
+  top: 53px;
+  width: 300px;
+  height: 505px;
+  border-radius: 0;
+  transform: translate(-50%, 0);
 }
 #wrap > #portfolio > .slides-container > a {
   position: absolute;

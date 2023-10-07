@@ -21,7 +21,7 @@ $(function () {
 	setInterval(typing, 250);
 });
 
-//원페이지 스크롤
+//원페이지 스크롤, 메뉴활성화
 $(function () {
 	window.addEventListener(
 		'wheel',
@@ -34,11 +34,12 @@ $(function () {
 	const $html = $('html');
 	let page = 1;
 	const lastPage = $('section').length;
-	// console.log(lastPage);
+    const $menus = $('header>nav>.gnb>li>a');
 
 	$html.animate({ scrollTop: 0 }, 10);
 
 	$(window).on('wheel', function (e) {
+
 		if ($html.is(':animated')) return;
 
 		if (e.originalEvent.deltaY > 0) {
@@ -49,18 +50,60 @@ $(function () {
 			page--;
 		}
 		if (page == 2) {
-			$('header').show(1500);
+			$('header').show(1000);
 		}
 		if (page == 1) {
 			$('header').hide(1000);
 		}
-		let posTop = (page - 1) * $(window).height();
 
+		let posTop = (page - 1) * $(window).height();
 		$html.animate({ scrollTop: posTop });
+
+        $menus.eq(page-2).parent().addClass('on').siblings().removeClass('on')
+
 	});
+
+    $menus.on('click',function(evt){
+        evt.preventDefault();
+        $(this).parent().addClass('on');
+        $(this).parent().siblings().removeClass('on');
+
+        let nowIdx = $menus.index(this);
+        let page = nowIdx+2;
+        let posTop = (page - 1) * $(window).height();
+
+        $html.animate({ scrollTop: posTop });
+
+        console.log(`posTop=${posTop}, page=${page}`);
+    })
 });
 
-//#skills 라이트박스
+//#portfolio 슬라이드,라이트박스
 $(function () {
-	const $shadow = $('.uiux>.shadow');
+	const $slides = $('#portfolio>.slides-container>.slides>li');
+    const $btnNext = $('#portfolio>.slides-container>.slides-next');
+    const $btnPrev = $('#portfolio>.slides-container>.slides-prev');
+
+    let nowIdx = 0;
+    let oldIdx = nowIdx;
+
+    $btnPrev.on('click',function(evt){
+        evt.preventDefault();
+        
+        oldIdx = nowIdx;
+        nowIdx>0? nowIdx--:nowIdx=($slides.length-1);
+
+        $slides.eq(oldIdx).stop().fadeOut(200);
+		$slides.eq(nowIdx).stop().css({display:'flex'}).fadeIn(200);
+    })
+
+    $btnNext.on('click',function(evt){
+        evt.preventDefault();
+
+        oldIdx = nowIdx;
+        nowIdx<($slides.length-1)? nowIdx++:nowIdx=0;
+
+        $slides.eq(oldIdx).stop().fadeOut(200);
+		$slides.eq(nowIdx).stop().css({display:'flex'}).fadeIn(200);
+    })
 });
