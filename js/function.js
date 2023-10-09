@@ -93,8 +93,8 @@ $(function () {
         oldIdx = nowIdx;
         nowIdx>0? nowIdx--:nowIdx=($slides.length-1);
 
-        $slides.eq(oldIdx).stop().fadeOut(200);
-		$slides.eq(nowIdx).stop().css({display:'flex'}).fadeIn(200);
+        $slides.eq(oldIdx).stop().fadeOut(400);
+		$slides.eq(nowIdx).stop().css({display:'flex'}).fadeIn(600);
     })
 
     $btnNext.on('click',function(evt){
@@ -103,7 +103,8 @@ $(function () {
         oldIdx = nowIdx;
         nowIdx<($slides.length-1)? nowIdx++:nowIdx=0;
 
-        $slides.eq(oldIdx).stop().fadeOut(200);
-		$slides.eq(nowIdx).stop().css({display:'flex'}).fadeIn(200);
+        $slides.eq(oldIdx).stop().fadeOut(400);
+		$slides.eq(nowIdx).stop().css({display:'flex'}).fadeIn(600);
     })
 });
+

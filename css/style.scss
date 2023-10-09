@@ -1,9 +1,11 @@
 @charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 $pri-color1: #141a26;
 $sec-color1: #8679d9;
 $sec-color2: #81fded;
 $point-color1: #f78a69;
+$point-color2: #ff4ced;
 
 @mixin transCent {
 	transform: translate(-50%, -50%);
@@ -16,6 +18,23 @@ $point-color1: #f78a69;
 	100% {
 		transform: translate(0, -5px);
 	}
+}
+@keyframes moonbounce {
+	0% {
+		transform: translate(0, 0);
+	}
+	30% {
+		transform: translate(20px, 35px);
+	}
+    60%{
+        transform: translate(40px, 0);
+    }
+    80%{
+        transform: translate(60px, -35px);
+    }
+    100%{
+        transform: translate(80px,0);
+    }
 }
 
 @keyframes roll {
@@ -232,6 +251,11 @@ body {
 						color: $point-color1;
 					}
 				} //end of p
+                >p+p{
+                    >span{
+                        color: $point-color2;
+                    }
+                }
 			} //end of .vision
 		} //end of .container
 	} //end of #about-me
@@ -479,9 +503,13 @@ body {
 					} //end of .desc
 
 					> .frame {
+                        position: relative;
                         display: flex;
 						width: 60%;
                         height: 600px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
 
 						> video {
 							width: 100%;
@@ -498,17 +526,9 @@ body {
 					&:nth-child(1) {
 						display: flex;
 					}//end of nth-child(1)
-					// &:nth-child(2) {
-					// 	display: flex;
-					// } //end of nth-child(2)
                     &:nth-child(3){
-
-                        >.frame{
-                            position: relative;
+                        >.frame{                            
                             background-image: url(../img/portfolio/smartphone-2237421_1280.png);
-                            background-position: center center;
-                            background-repeat: no-repeat;
-                            background-size: contain;
 
                             >img{
                                 position: absolute;
@@ -521,6 +541,21 @@ body {
                             }
                         }
                     }//end of nth-child(3)
+                    &:nth-child(4){
+                        >.frame{
+                            background-image: url(../img/portfolio/browser.png);
+                            background-size: 100% 600px;
+
+                            >img{
+                                position: absolute;
+                                left: 50%;
+                                top: 77px;
+                                width: 96%;
+                                height: 520px;
+                                transform: translate(-50%,0);
+                            }
+                        }
+                    }
 				} //end of li
 			} //end of .slides-container
 			> a {
@@ -552,4 +587,132 @@ body {
 			} //end of a
 		}
 	} //end of #portfolio
+
+    >#contact{
+        position: relative;
+        height: 100vh;
+        background-image: url(../img/space.jpg);
+        background-size: cover;
+
+        &:after {
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 100;
+			background-color: $pri-color1;
+			opacity: 0.5;
+			content: '';
+		}
+
+        >.frame{
+            position: absolute;
+            right: 10%;
+            top: 5%;
+            animation: moonbounce 15s linear infinite alternate;
+            >img{
+                display: block;
+                width: 200px;
+                height: 200px;
+                animation: roll 25s linear infinite;
+            }
+        }//end of .frame
+
+        >.container{
+            position: absolute;
+            left: 12%;
+            top: 10%;
+            width: 85%;
+            max-width: 1600px;
+            height: 700px;
+
+            >.keyword{
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 300;
+                width: 100%;
+    
+                >ol{
+                    >li{
+                        position: absolute;
+                        color: #fff;
+                        font-family: 'Noto Sans KR', sans-serif;;
+                        font-weight: 500;
+                        font-size: 16px;
+                        text-align: center;
+
+                        >span{
+                            display: block;
+                            margin-bottom: 35px;
+                            font-family: 'Pacifico', cursive;
+                            font-size: 36px;
+                            font-weight: 400;
+                            letter-spacing: 3px;
+                        }
+
+                        &:nth-child(1){
+                            left: 5%;
+                            top: 45px;
+                            text-shadow: 0 0 2px #fff, 0 0 5px #fff,0 0 42px $sec-color1, 0 0 82px $sec-color1, 0 0 92px $sec-color1, 0 0 102px $sec-color1, 0 0 151px $sec-color1;
+                        }
+                        &:nth-child(2){
+                            right: 40%;
+                            top: 155px;
+                            text-shadow: 0 0 2px #fff, 0 0 5px #fff,0 0 42px $sec-color2, 0 0 82px $sec-color2, 0 0 92px $sec-color2, 0 0 102px $sec-color2, 0 0 151px $sec-color2;
+                        }
+                        &:nth-child(3){
+                            left: 20%;
+                            top: 255px;
+                            text-shadow: 0 0 2px #fff, 0 0 5px #fff,0 0 42px $point-color1, 0 0 82px $point-color1, 0 0 92px $sec-color2, 0 0 102px $point-color1, 0 0 151px $point-color1;
+                        }
+                        &:nth-child(4){
+                            right: 25%;
+                            top: 385px;
+                            text-shadow: 0 0 2px #fff, 0 0 5px #fff,0 0 42px $point-color2, 0 0 82px $point-color2, 0 0 92px $point-color2, 0 0 102px $point-color2, 0 0 151px $point-color2;
+
+                        }
+                    }
+                }
+            }//end of .keyword
+    
+            >.contact-point{
+                position: absolute;
+                left: 40%;
+                bottom: 80px;
+                z-index: 300;
+                transform: translate(-50%,0);
+                >ul{
+                    display: flex;
+                    >li{
+                        margin-right: 50px;
+                        >a{
+                            display: block;
+                            margin-top: 10px;
+                            color: #fff;
+                            font-weight: 600;
+                            font-size: 24px;
+                        }//end of a
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                    }//end of li
+                }//end of ul
+            }//end of .contact-point
+        }//end of .container
+    }//end fo #contact
+
+    >footer{
+        position: absolute;
+        bottom: 0;
+        z-index: 400;
+        width: 100%;
+        height: 150px;
+        color: #dedede;
+        font-size: 13px;
+        line-height: 1.8;
+        text-align: center;
+    }
 } //end of #wrap
