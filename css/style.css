@@ -471,10 +471,10 @@ body {
 #wrap > #portfolio > .slides-container > .slides > li:nth-child(1) {
   display: flex;
 }
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(3) > .frame {
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(3) > .frame, #wrap > #portfolio > .slides-container > .slides > li:nth-child(5) > .frame {
   background-image: url(../img/portfolio/smartphone-2237421_1280.png);
 }
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(3) > .frame > img {
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(3) > .frame > img, #wrap > #portfolio > .slides-container > .slides > li:nth-child(5) > .frame > img {
   position: absolute;
   left: 50%;
   top: 53px;
@@ -483,11 +483,11 @@ body {
   border-radius: 0;
   transform: translate(-50%, 0);
 }
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(4) > .frame {
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(4) > .frame, #wrap > #portfolio > .slides-container > .slides > li:nth-child(6) > .frame {
   background-image: url(../img/portfolio/browser.png);
   background-size: 100% 600px;
 }
-#wrap > #portfolio > .slides-container > .slides > li:nth-child(4) > .frame > img {
+#wrap > #portfolio > .slides-container > .slides > li:nth-child(4) > .frame > img, #wrap > #portfolio > .slides-container > .slides > li:nth-child(6) > .frame > img {
   position: absolute;
   left: 50%;
   top: 77px;
