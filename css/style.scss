@@ -528,7 +528,8 @@ body {
 					&:nth-child(1) {
 						display: flex;
 					} //end of nth-child(1)
-					&:nth-child(3) {
+					&:nth-child(3),
+					&:nth-child(5) {
 						> .frame {
 							background-image: url(../img/portfolio/smartphone-2237421_1280.png);
 
@@ -543,7 +544,8 @@ body {
 							}
 						}
 					} //end of nth-child(3)
-					&:nth-child(4) {
+					&:nth-child(4),
+					&:nth-child(6) {
 						> .frame {
 							background-image: url(../img/portfolio/browser.png);
 							background-size: 100% 600px;
